@@ -12,5 +12,5 @@ banner-height: 160
 ---
 # Daily Note
 
-- [ ] [[Habits/English Study]]
-- [ ] [[Code practice]]
+- [x] [[Habits/English Study]] ✅ 2025-05-07
+- [x] [[Habits/Code practice]] ✅ 2025-05-07
