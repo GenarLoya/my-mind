@@ -55,7 +55,7 @@ while (true) {
 title: <% titleProp %>
 name: <% habitName %>
 days:
-<% selectedDays.forEach(d => `- %{d}/n`) %>
+<% JSON.stringify(selectedDays) %>
 start_time: <% startTime %>
 end_time: <% endTime %>
 ---
