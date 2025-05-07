@@ -26,3 +26,5 @@ habitsIds.forEach(id => {
     tR += `- [ ] ${id}\n`;
 });
 %>
+
+[[English Study]]
