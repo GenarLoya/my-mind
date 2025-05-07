@@ -52,7 +52,7 @@ while (true) {
 }
 -%>
 ---
-title: <% titleProp %>
+id: <% titleProp %>
 name: <% habitName %>
 days:
 <% JSON.stringify(selectedDays) %>
