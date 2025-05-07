@@ -1,3 +1,6 @@
 ---
-title: <%* 	const newTitle = await tp.system.prompt("Enter note title");	await tp.file.rename(newTitle);	tR = newTitle;%>
+name: <% await tp.system.prompt("Please enter a value", "name")%>
 ---
+<%*
+new Notice(`status: ${tp.frontmatter.name}`);
+-%>
