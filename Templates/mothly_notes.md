@@ -1,7 +1,18 @@
 ---
 cssclasses:
   - daily
-banner: https://i.pinimg.com/736x/04/ef/5e/04ef5e1743f2123165f573616c533885.jpg
+banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
+pixel-banner-flag-color: white
+content-start: 796
+banner-x: 3
+banner-y: 34
+banner-display: cover
+banner-fade: 100
+banner-height: 160
+icon: 😺
+icon-x: 7
+icon-size: 49
+icon-y: -100
 ---
 # Monthly Note
 ### 0002-January
