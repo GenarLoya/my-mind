@@ -1,5 +1,5 @@
 ---
-title: english_study
+id: english_study
 name: English Study
 days:
 [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"friday","monday"]

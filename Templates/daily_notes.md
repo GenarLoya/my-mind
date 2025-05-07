@@ -15,9 +15,9 @@ banner-height: 160
 <%*
 	const dv = app.plugins.plugins.dataview.api;
 
-	const habits = dv.pages('"Habits"')
+	const habits = await dv.pages('"Habits"')
 
-	console.log(habits)
+	const id = habits.values.map(doc => doc.id)
 
 	tR += "A"
 %>
