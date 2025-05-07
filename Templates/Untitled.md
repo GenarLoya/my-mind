@@ -12,12 +12,4 @@ banner-height: 160
 ---
 # Daily Note
 
-<%*
-	const dv = app.plugins.plugins.dataview.api;
-
-	const habits = dv.pages('"Habits"')
-
-	console.log(habits)
-
-	tR += "A"
-%>
+A
