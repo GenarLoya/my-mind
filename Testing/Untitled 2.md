@@ -12,4 +12,4 @@ banner-height: 160
 ---
 # Daily Note
 
-<% console.log(app.plugins.plugins.dataview.api) %>
+undefined
