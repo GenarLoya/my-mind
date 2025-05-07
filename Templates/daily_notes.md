@@ -13,11 +13,16 @@ banner-height: 160
 # Daily Note
 
 <%*
-	const dv = app.plugins.plugins.dataview.api;
+const dv = app.plugins.plugins.dataview.api;
 
-	const habits = await dv.pages('"Habits"')
+// Obtener todas las notas en la carpeta "Habits"
+const habits = await dv.pages('"Habits"');
 
-	const id = habits.values.map(doc => doc.id)
+// Obtener los IDs de cada hábito
+const habitsIds = habits.values.map(habit => habit.id);
 
-	tR += "A"
+// Generar una lista de tareas (checkboxes)
+habitsIds.forEach(id => {
+    tR += `- [ ] ${id}\n`;
+});
 %>
