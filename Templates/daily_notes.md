@@ -18,13 +18,8 @@ const dv = app.plugins.plugins.dataview.api;
 // Obtener todas las notas en la carpeta "Habits"
 const habits = await dv.pages('"Habits"');
 
-// Obtener los IDs de cada hábito
-const habitsIds = habits.values.map(habit => habit.id);
-
 // Generar una lista de tareas (checkboxes)
-habitsIds.forEach(id => {
-    tR += `- [ ] ${id}\n`;
+habits.forEach(h => {
+    tR += `- [ ] [[${h.file.folder}/${h.file.name}]]\n`;
 });
 %>
-
-[[English Study]]
