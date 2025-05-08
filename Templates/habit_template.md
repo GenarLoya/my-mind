@@ -1,13 +1,5 @@
 ---
-banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
-pixel-banner-flag-color: white
-content-start: 161
-banner-x: 3
-banner-y: 34
-banner-display: cover
-banner-fade: 100
-banner-height: 160
----
+
 <%*
 
 
@@ -61,13 +53,20 @@ while (true) {
     }
 }
 -%>
----
 id: <% titleProp %>
 name: <% habitName %>
-days:
-<% JSON.stringify(selectedDays) %>
+tags:
+<% selectedDays.map(d => `- ${d}`).join('\n') %>
 start_time: <% startTime %>
 end_time: <% endTime %>
+banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
+pixel-banner-flag-color: white
+content-start: 161
+banner-x: 3
+banner-y: 34
+banner-display: cover
+banner-fade: 100
+banner-height: 160
 ---
 # <% habitName %>
 
