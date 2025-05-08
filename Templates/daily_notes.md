@@ -17,6 +17,15 @@ const dv = app.plugins.plugins.dataview.api;
 
 // Obtener todas las notas en la carpeta "Habits"
 const habits = await dv.pages('"Habits"');
+const weekdays = await dv.pages('"tags/weekdays"')
+
+if (!weekdays.values.length) {
+	throw new Error("Weekdays file should be exists")
+}
+
+const weekdayTags = weekdays.file.tags.values
+
+console.log(weekdayTags)
 
 // Generar una lista de tareas (checkboxes)
 habits.forEach(h => {

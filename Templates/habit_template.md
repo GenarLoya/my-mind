@@ -1,7 +1,7 @@
 ---
 
 <%*
-
+const dv = app.plugins.plugins.dataview.api;
 
 // 1. Prompt for habit name
 const habitName = await tp.system.prompt("Enter the habit name");
@@ -9,22 +9,31 @@ const titleProp = habitName.toLowerCase().replace(/\s+/g, "_");
 await tp.file.rename(habitName);
 
 // 2. Select repeat days
-let allDays = [
-	"monday", 
-	"tuesday", 
-	"wednesday", 
-	"thursday", 
-	"friday", 
-	"saturday", 
-	"sunday", 
-	"none"
-];
+const weekdays = await dv.pages('"tags/weekdays"')
+
+if (!weekdays.values.length) {
+	throw new Error("Weekdays file should be exists")
+}
+
+const weekdayTags = weekdays.file.tags.values.map(w => w.replaceAll("#", ""))
+
+const NONE = "none"
+let allDays = [...weekdayTags, NONE];
 
 let selectedDays = [];
 
 while (true) {
     const day = await tp.system.suggester(allDays, allDays, false, "Select a day (or 'none' to finish)");
-    if (day === "none") break;
+
+
+    if (day === NONE) {
+	    if (!selectedDays.length) {
+		    await tp.system.prompt("❌ Invalid time format. Press Enter to retry.");
+		    continue;
+	    }
+
+		break;
+    }
     selectedDays.push(day);
     allDays = allDays.filter(d => d !== day); // Remove selected
 }
@@ -56,7 +65,7 @@ while (true) {
 id: <% titleProp %>
 name: <% habitName %>
 tags:
-<% selectedDays.map(d => `- ${d}`).join('\n') %>
+<% selectedDays.map(d => `- ${d}`).join(' \n') %>
 start_time: <% startTime %>
 end_time: <% endTime %>
 banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
