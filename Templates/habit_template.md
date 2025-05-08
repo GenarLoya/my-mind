@@ -8,7 +8,13 @@ const habitName = await tp.system.prompt("Enter the habit name");
 const titleProp = habitName.toLowerCase().replace(/\s+/g, "_");
 await tp.file.rename(habitName);
 
+const weekdays = await dv.pages('"tags/weekdays"')
 
+if (!weekdays.values.length) {
+	throw new Error("Weekdays file should be exists")
+}
+
+const weekdayTags = weekdays.file.tags.values
 
 const NONE = "none"
 let allDays = [...weekdayTags, NONE];
@@ -78,3 +84,15 @@ Describe your habit here.
 
 
 
+## End Hour
+
+```meta-bind
+INPUT[text(defaultValue(<% habitName %>)):name]
+```
+
+## Start Hour
+
+
+```meta-bind
+INPUT[text(defaultValue(<% habitName %>)):name]
+```
