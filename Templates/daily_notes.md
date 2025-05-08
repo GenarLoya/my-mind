@@ -12,22 +12,40 @@ banner-height: 160
 ---
 # Daily Note
 
+## Habits
+
 <%*
 const dv = app.plugins.plugins.dataview.api;
 
 // Obtener todas las notas en la carpeta "Habits"
 const habits = await dv.pages('"Habits"');
-const weekdays = await dv.pages('"tags/weekdays"')
+const weekdays = await dv.pages('"tags/weekdays"');
 
 if (!weekdays.values.length) {
-	throw new Error("Weekdays file should be exists")
+	throw new Error("Weekdays file should exist");
 }
 
-const weekdayTags = weekdays.file.tags.values.map(w => w.replaceAll("#", ''))
+const weekdayTags = weekdays.file.tags.values.map(w => w.replaceAll("#", ''));
 
-// Generar una lista de tareas (checkboxes)
+// Obtener el día actual (en minúsculas, como 'monday')
+const today = window.moment().format("dddd").toLowerCase();
+const todayTag = `week/${today}`;
+
+let found = false;
+
 habits.forEach(h => {
-	console.log(h.file.frontmatter.tags)
-	tR += `- [ ] [[${h.file.folder}/${h.file.name}]]\n`;
+	const tags = h.file.frontmatter?.tags ?? [];
+
+	if (tags.includes(todayTag)) {
+		found = true;
+		tR += `- [ ] [[${h.file.folder}/${h.file.name}]]\n`;
+	}
 });
+
+if (!found) {
+	tR += `> 📭 No habits scheduled for today (${today.charAt(0).toUpperCase() + today.slice(1)}).\n`;
+}
 %>
+
+## Tasks
+

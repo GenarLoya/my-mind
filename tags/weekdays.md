@@ -1,9 +1,9 @@
 ## 📅 Tags por día
 
-- Lunes #monday
-- Martes #tuesday
+- Lunes #week/monday
+- Martes #week/tuesday
 - Miércoles #week/wednesday
 - Jueves #week/thursday
 - Viernes #week/friday
-- Sábado #wee/saturday
+- Sábado #week/saturday
 - Domingo #week/sunday
