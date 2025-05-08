@@ -1,12 +1,13 @@
 ---
-completed: true
----
 <%*
 const moment = window.moment;
 let taskName;
 while (true) {
     taskName = await tp.system.prompt("📝 Nombre de la tarea (obligatorio)");
-    if (taskName?.trim()) break;
+    if (taskName?.trim()) {
+	    await tp.file.rename(taskName);
+	    break;
+    }
     await tp.system.prompt("❌ El nombre no puede estar vacío. Presiona Enter para intentar de nuevo.");
 }
 
@@ -26,7 +27,6 @@ while (true) {
 
 const id = taskName.toLowerCase().replace(/[^\w\d\-]/g, "_");
 -%>
----
 id: <% id %>
 name: <% taskName %>
 description: <% taskDescription %>
