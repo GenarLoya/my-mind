@@ -33,17 +33,30 @@ const todayTag = `${today}`;
 
 let found = false;
 
+let todaysHabits = [];
+
 habits.forEach(h => {
 	const tags = h.file.frontmatter?.days ?? [];
-
 	if (tags.includes(todayTag)) {
-		found = true;
-		tR += `- [ ] [[${h.file.folder}/${h.file.name}]]\n`;
+		const start = h.file.frontmatter?.start_time ?? "00:00";
+		const end = h.file.frontmatter?.end_time ?? "23:59";
+		todaysHabits.push({
+			name: h.file.name,
+			path: `${h.file.folder}/${h.file.name}`,
+			start,
+			end
+		});
 	}
 });
 
-if (!found) {
+
+if (!todaysHabits.length) {
 	tR += `> 📭 No habits scheduled for today (${today.charAt(0).toUpperCase() + today.slice(1)}).\n`;
+} else {
+	todaysHabits.sort((a, b) => a.start.localeCompare(b.start));
+	todaysHabits.forEach(h => {
+		tR += `- [ ] ⏰ **${h.start} – ${h.end}** [[${h.path}]]\n`;
+	});
 }
 %>
 
