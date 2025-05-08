@@ -14,7 +14,7 @@ if (!weekdays.values.length) {
 	throw new Error("Weekdays file should be exists")
 }
 
-const weekdayTags = weekdays.file.tags.values
+const weekdayTags = weekdays.file.tags.values.map(w => w.replace("#",""))
 
 const NONE = "none"
 let allDays = [...weekdayTags, NONE];
@@ -66,7 +66,7 @@ while (true) {
 -%>
 id: <% titleProp %>
 name: <% habitName %>
-tags:
+days:
 <% selectedDays.map(d => `- ${d}`).join(' \n') %>
 start_time: <% startTime %>
 end_time: <% endTime %>
@@ -85,5 +85,13 @@ banner-height: 160
 Describe your habit here.
 
 ## Name: `INPUT[text():name]`  
+
+## On days:
+
+```meta-bind
+INPUT[multiSelect(
+<% weekdayTags.map(d => `option(${d})`).join(' ,') %>
+):days]
+```
 
 **From**: `INPUT[time:start_time]`  to `INPUT[time:end_time]`

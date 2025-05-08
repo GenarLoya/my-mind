@@ -1,11 +1,14 @@
 ---
-id: tyfwehfj
-name: tyfwehfj
+
+id: testyuekgfher
+name: testyuekgfher
 tags:
-  - 
-  - 
-start_time: 21:05
-end_time: 22:00
+- #week/monday 
+- #week 
+- #week/tuesday 
+- #week/wednesday
+start_time: 09:00
+end_time: 18:00
 banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
 pixel-banner-flag-color: white
 content-start: 161
@@ -22,8 +25,12 @@ Describe your habit here.
 
 ## Name: `INPUT[text():name]`  
 
-## On days
+## On days:
 
-
+```meta-bind
+INPUT[multiSelect(
+- option(#week/monday) ,- option(#week) ,- option(#week/tuesday) ,- option(#week/wednesday)
+):multiSelect2]
+```
 
 **From**: `INPUT[time:start_time]`  to `INPUT[time:end_time]`
