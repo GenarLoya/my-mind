@@ -86,7 +86,9 @@ banner-height: 160
 
 ## Description
 
-
+```meta-bind
+INPUT[textArea(class(meta-bind-full-width), class(meta-bind-high)):description]
+```
 
 ## On days:
 
