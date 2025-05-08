@@ -1,13 +1,9 @@
 ---
-
 id: prepare_food
 name: Prepare food
 days:
-- monday 
-- tuesday 
-- wednesday 
-- thursday 
-- friday
+  - tuesday
+  - thursday
 start_time: 17:00
 end_time: 19:00
 banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
