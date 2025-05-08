@@ -78,21 +78,10 @@ banner-display: cover
 banner-fade: 100
 banner-height: 160
 ---
-# <% habitName %>
+
+# `VIEW[{distance}]`
 
 Describe your habit here.
 
+## Name: `INPUT[text(defaultValue(<% habitName %>)):name]`  
 
-
-## End Hour
-
-```meta-bind
-INPUT[text(defaultValue(<% habitName %>)):name]
-```
-
-## Start Hour
-
-
-```meta-bind
-INPUT[text(defaultValue(<% habitName %>)):name]
-```
