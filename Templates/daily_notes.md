@@ -73,6 +73,7 @@ if (tasks.length === 0) {
     const today = window.moment().startOf('day');
 
     dv.list(tasks.map(p => {
+	    console.log(p.due)
         const dueDate = moment(p.due);
         const checked = p.completed ? "✅" : "☐";
         const dueStr = dueDate.format("YYYY-MM-DD");
