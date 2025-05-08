@@ -29,7 +29,7 @@ const weekdayTags = weekdays.file.tags.values.map(w => w.replaceAll("#", ''));
 
 // Obtener el día actual (en minúsculas, como 'monday')
 const today = window.moment().format("dddd").toLowerCase();
-const todayTag = `week/${today}`;
+const todayTag = `${today}`;
 
 let found = false;
 

@@ -80,11 +80,13 @@ banner-fade: 100
 banner-height: 160
 ---
 
-# `VIEW[{distance}]`
-
-Describe your habit here.
+# 🛠 Edición rápida
 
 ## Name: `INPUT[text():name]`  
+
+## Description
+
+
 
 ## On days:
 
