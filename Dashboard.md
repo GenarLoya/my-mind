@@ -1,6 +1,9 @@
 ---
 banner: "[[imgs/banners/dashboard.png]]"
 ---
+
+## 🗂️ Habits Summary
+
 ```dataviewjs
 const today = window.moment().format("YYYY-MM-DD");
 const pages = dv.pages('"Personal Journal"')
@@ -21,8 +24,7 @@ if (pages.length === 0) {
     if (allTasks.length === 0) {
         dv.paragraph("📭 No tasks found.");
     } else {
-        dv.header(4, "🗂️ Tasks Summary");
-
+    
         // Creamos tabla con dos columnas: pendientes y completadas
         const maxLength = Math.max(pending.length, completed.length);
 
@@ -37,7 +39,41 @@ if (pages.length === 0) {
 
 ```
 
+## 🗂️ Tasks
 
-## Calendar
+```dataviewjs
+const tasks = dv.pages('"Tasks"')
+    .where(p => p.due)
+    .sort(p => p.due, 'asc');
 
+if (tasks.length === 0) {
+    dv.paragraph("> ✅ No tasks with a due date.");
+} else {
+    const today = window.moment().startOf('day');
 
+    const filtered = tasks.values.filter(p => {
+        const { due, completed } = p.file.frontmatter;
+        const dueDate = moment(due);
+
+        const isOverdue = !completed && dueDate.isBefore(today);
+        const isRecentlyCompleted = completed && dueDate.isSameOrAfter(today.clone().subtract(5, 'days'));
+
+        return isOverdue || isRecentlyCompleted;
+    });
+
+    if (filtered.length === 0) {
+        dv.paragraph("> 💤 No overdue or recently completed tasks.");
+    } else {
+        dv.list(filtered.map(p => {
+            const { due, completed } = p.file.frontmatter;
+            const dueDate = moment(due);
+            const checked = completed ? "✅" : "☐";
+            const dueStr = dueDate.format("YYYY-MM-DD");
+            const overdueTag = (!completed && dueDate.isBefore(today)) ? " ⚠️ Overdue" : "";
+
+            return `${checked} [[${p.file.folder}/${p.file.name}]] — 📅 ${dueStr}${overdueTag}`;
+        }));
+    }
+}
+
+```
