@@ -34,7 +34,7 @@ const todayTag = `week/${today}`;
 let found = false;
 
 habits.forEach(h => {
-	const tags = h.file.frontmatter?.tags ?? [];
+	const tags = h.file.frontmatter?.days ?? [];
 
 	if (tags.includes(todayTag)) {
 		found = true;
