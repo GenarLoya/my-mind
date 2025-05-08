@@ -3,10 +3,12 @@
 id: test
 name: TEST
 tags:
-- monday
-- saturday
-start_time: 08:00
-end_time: 09:00
+- monday 
+- wednesday 
+- saturday 
+- null
+start_time: 1970-12-31 19:00
+end_time: 1970-12-31 20:00
 banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
 pixel-banner-flag-color: white
 content-start: 161

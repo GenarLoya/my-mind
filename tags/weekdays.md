@@ -2,8 +2,8 @@
 
 - Lunes #monday
 - Martes #tuesday
-- Miércoles #wednesday
-- Jueves #thursday
-- Viernes #friday
-- Sábado #saturday
-- Domingo #sunday
+- Miércoles #week/wednesday
+- Jueves #week/thursday
+- Viernes #week/friday
+- Sábado #wee/saturday
+- Domingo #week/sunday

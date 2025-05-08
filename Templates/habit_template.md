@@ -8,14 +8,7 @@ const habitName = await tp.system.prompt("Enter the habit name");
 const titleProp = habitName.toLowerCase().replace(/\s+/g, "_");
 await tp.file.rename(habitName);
 
-// 2. Select repeat days
-const weekdays = await dv.pages('"tags/weekdays"')
 
-if (!weekdays.values.length) {
-	throw new Error("Weekdays file should be exists")
-}
-
-const weekdayTags = weekdays.file.tags.values.map(w => w.replaceAll("#", ""))
 
 const NONE = "none"
 let allDays = [...weekdayTags, NONE];
@@ -42,8 +35,9 @@ while (true) {
 let startTime;
 while (true) {
     const input = await tp.system.prompt("Enter start time (e.g., 08:00 or 8:00 am)");
-    if (moment(input, ["HH:mm", "h:mm A"], true).isValid()) {
-        startTime = input;
+    const parsed = moment(input, ["HH:mm", "H:mm", "h:mm A", "h:mmA", "hh:mm A"], true);
+    if (parsed.isValid()) {
+        startTime = parsed.format("1970-12-31 HH:mm");
         break;
     } else {
         await tp.system.prompt("❌ Invalid time format. Press Enter to retry.");
@@ -54,8 +48,9 @@ while (true) {
 let endTime;
 while (true) {
     const input = await tp.system.prompt("Enter end time (e.g., 18:30 or 6:30 pm)");
-    if (moment(input, ["HH:mm", "h:mm A"], true).isValid()) {
-        endTime = input;
+    const parsed = moment(input, ["HH:mm", "H:mm", "h:mm A", "h:mmA", "hh:mm A"], true);
+    if (parsed.isValid()) {
+        endTime = parsed.format("1970-12-31 HH:mm");
         break;
     } else {
         await tp.system.prompt("❌ Invalid time format. Press Enter to retry.");

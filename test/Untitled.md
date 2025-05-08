@@ -12,3 +12,4 @@ banner-height: 160
 ---
 # Daily Note
 
+- [ ] [[Habits/TEST]]

@@ -23,12 +23,11 @@ if (!weekdays.values.length) {
 	throw new Error("Weekdays file should be exists")
 }
 
-const weekdayTags = weekdays.file.tags.values
-
-console.log(weekdayTags)
+const weekdayTags = weekdays.file.tags.values.map(w => w.replaceAll("#", ''))
 
 // Generar una lista de tareas (checkboxes)
 habits.forEach(h => {
-    tR += `- [ ] [[${h.file.folder}/${h.file.name}]]\n`;
+	console.log(h.file.frontmatter.tags)
+	tR += `- [ ] [[${h.file.folder}/${h.file.name}]]\n`;
 });
 %>
