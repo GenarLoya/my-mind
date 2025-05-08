@@ -24,19 +24,17 @@ if (pages.length === 0) {
     if (allTasks.length === 0) {
         dv.paragraph("📭 No tasks found.");
     } else {
-    
-        // Creamos tabla con dos columnas: pendientes y completadas
-        const maxLength = Math.max(pending.length, completed.length);
+        if (pending.length > 0) {
+            dv.header(4, "🕒 Pending");
+            dv.list(pending.map(t => `☐ ${t.text}`));
+        }
 
-        const tableRows = Array.from({ length: maxLength }, (_, i) => [
-            pending[i]?.text || "",
-            completed[i]?.text || ""
-        ]);
-
-        dv.table(["🕒 Pending", "✅ Completed"], tableRows);
+        if (completed.length > 0) {
+            dv.header(4, "✅ Completed");
+            dv.list(completed.map(t => `✅ ${t.text}`));
+        }
     }
 }
-
 ```
 
 ## 🗂️ Tasks
