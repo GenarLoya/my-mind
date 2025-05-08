@@ -21,3 +21,5 @@ Describe your habit here.
 
 ## Name: `INPUT[text(defaultValue(uyefhbe)):name]`  
 
+**From**: `INPUT[time(defaultValue(uyefhbe)):name]`  
+

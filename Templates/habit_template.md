@@ -39,11 +39,12 @@ while (true) {
 
 // 3. Prompt for start time
 let startTime;
+
 while (true) {
     const input = await tp.system.prompt("Enter start time (e.g., 08:00 or 8:00 am)");
     const parsed = moment(input, ["HH:mm", "H:mm", "h:mm A", "h:mmA", "hh:mm A"], true);
     if (parsed.isValid()) {
-        startTime = parsed.format("1970-12-31 HH:mm");
+        startTime = parsed.format("HH:mm");
         break;
     } else {
         await tp.system.prompt("❌ Invalid time format. Press Enter to retry.");
@@ -56,7 +57,7 @@ while (true) {
     const input = await tp.system.prompt("Enter end time (e.g., 18:30 or 6:30 pm)");
     const parsed = moment(input, ["HH:mm", "H:mm", "h:mm A", "h:mmA", "hh:mm A"], true);
     if (parsed.isValid()) {
-        endTime = parsed.format("1970-12-31 HH:mm");
+        endTime = parsed.format("HH:mm");
         break;
     } else {
         await tp.system.prompt("❌ Invalid time format. Press Enter to retry.");
@@ -83,5 +84,6 @@ banner-height: 160
 
 Describe your habit here.
 
-## Name: `INPUT[text(defaultValue(<% habitName %>)):name]`  
+## Name: `INPUT[text():name]`  
 
+**From**: `INPUT[time:start_time]`  to `INPUT[time:end_time]`
