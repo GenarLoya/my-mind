@@ -60,5 +60,25 @@ if (!todaysHabits.length) {
 }
 %>
 
-## Tasks
+## 🗂️ Tasks
 
+```dataviewjs
+const tasks = dv.pages('"Tasks"')
+    .where(p => p.due)
+    .sort(p => p.due, 'asc');
+
+if (tasks.length === 0) {
+    dv.paragraph("> ✅ No tasks with a due date.");
+} else {
+    const today = window.moment().startOf('day');
+
+    dv.list(tasks.map(p => {
+        const dueDate = moment(p.due);
+        const checked = p.completed ? "✅" : "☐";
+        const dueStr = dueDate.format("YYYY-MM-DD");
+        const overdueTag = (!p.completed && dueDate.isBefore(today)) ? " ⚠️ Overdue" : "";
+
+        return `${checked} [[${p.file.folder}/${p.file.name}]] — 📅 ${dueStr}${overdueTag}`;
+    }));
+}
+```
