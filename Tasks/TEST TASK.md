@@ -2,8 +2,8 @@
 id: test_task
 name: TEST TASK
 description: 
-due: 2025-05-26
-completed: true
+due: 2025-04-05
+completed: false
 ---
 # 🛠 Edición rápida
 

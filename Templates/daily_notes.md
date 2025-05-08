@@ -72,14 +72,29 @@ if (tasks.length === 0) {
 } else {
     const today = window.moment().startOf('day');
 
-    dv.list(tasks.map(p => {
-	    
-        const dueDate = moment(p.due);
-        const checked = p.completed ? "✅" : "☐";
-        const dueStr = dueDate.format("YYYY-MM-DD");
-        const overdueTag = (!p.completed && dueDate.isBefore(today)) ? " ⚠️ Overdue" : "";
+    const filtered = tasks.values.filter(p => {
+        const { due, completed } = p.file.frontmatter;
+        const dueDate = moment(due);
 
-        return `${checked} [[${p.file.folder}/${p.file.name}]] — 📅 ${dueStr}${overdueTag}`;
-    }));
+        const isOverdue = !completed && dueDate.isBefore(today);
+        const isRecentlyCompleted = completed && dueDate.isSameOrAfter(today.clone().subtract(5, 'days'));
+
+        return isOverdue || isRecentlyCompleted;
+    });
+
+    if (filtered.length === 0) {
+        dv.paragraph("> 💤 No overdue or recently completed tasks.");
+    } else {
+        dv.list(filtered.map(p => {
+            const { due, completed } = p.file.frontmatter;
+            const dueDate = moment(due);
+            const checked = completed ? "✅" : "☐";
+            const dueStr = dueDate.format("YYYY-MM-DD");
+            const overdueTag = (!completed && dueDate.isBefore(today)) ? " ⚠️ Overdue" : "";
+
+            return `${checked} [[${p.file.folder}/${p.file.name}]] — 📅 ${dueStr}${overdueTag}`;
+        }));
+    }
 }
+
 ```
