@@ -1,6 +1,5 @@
 ---
 banner: "[[imgs/banners/dashboard.png]]"
-pixel-banner-flag-color: white
 ---
 ```dataviewjs
 const today = window.moment().format("YYYY-MM-DD");
