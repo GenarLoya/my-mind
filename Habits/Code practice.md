@@ -8,4 +8,4 @@ end_time: 09:00
 ---
 # Code practice
 
-Describe your habit here.
+Study code

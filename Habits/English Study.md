@@ -8,4 +8,4 @@ end_time: 10:00 pm
 ---
 # English Study
 
-Describe your habit here.
+Study english
