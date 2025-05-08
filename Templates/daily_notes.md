@@ -19,7 +19,7 @@ const dv = app.plugins.plugins.dataview.api;
 
 // Obtener todas las notas en la carpeta "Habits"
 const habits = await dv.pages('"Habits"');
-const weekdays = await dv.pages('"tags/weekdays"');
+const weekdays = await dv.pages('"Tags/weekdays"');
 
 if (!weekdays.values.length) {
 	throw new Error("Weekdays file should exist");

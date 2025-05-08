@@ -8,7 +8,7 @@ const habitName = await tp.system.prompt("Enter the habit name");
 const titleProp = habitName.toLowerCase().replace(/\s+/g, "_");
 await tp.file.rename(habitName);
 
-const weekdays = await dv.pages('"tags/weekdays"')
+const weekdays = await dv.pages('"Tags/weekdays"')
 
 if (!weekdays.values.length) {
 	throw new Error("Weekdays file should be exists")
