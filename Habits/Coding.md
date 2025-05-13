@@ -1,12 +1,11 @@
 ---
-
 id: coding
 name: Coding
 days:
-- monday 
-- wednesday
+  - monday
+  - wednesday
 start_time: 19:00
-end_time: 21:00
+end_time: 23:00
 banner: "[[imgs/banners/695b874ffe3b6ab1f12ff09a7762284a.jpg]]"
 pixel-banner-flag-color: white
 content-start: 161
