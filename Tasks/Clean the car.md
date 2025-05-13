@@ -3,7 +3,7 @@ id: clean_the_car
 name: Clean the car
 description: 
 due: 2025-05-12
-completed: false
+completed: true
 ---
 # 🛠 Edición rápida
 
