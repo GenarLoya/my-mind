@@ -1,3 +1,5 @@
+# Prologue
+
 A dark beel tolls in the abbyss
 La campana negra suena en el abismo
 
@@ -29,4 +31,27 @@ From the depths of the void to the blood-soaked earth, diabolic horrosrs stalk t
 
 ---
 
-Abandon hope. Do not trust to faith. Sacrificis burn on pyres of madness, rotting corpses
+Abandon hope. Do not trust to faith. Sacrificis burn on pyres of madness, rotting corpses stir in unquiet graves.
+
+---
+
+Daemonic abominations leer with rictus grins and stare into the eyes of the acursed.
+
+---
+
+And the Ruinous gods with the indifference, look on.
+
+---
+
+This is  time of reckoning, where every mortal soul is at the mercy of the things, that lurk in the dark.
+
+---
+
+This is the night eternal, the province of monters and daemons. This warhammer horror. None shall escape damnation.
+
+---
+
+And so the bells tolls on.
+
+# Chapter 1
+
