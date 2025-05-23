@@ -3,7 +3,7 @@ id: cita_psicologo
 name: Cita psicologo
 description: ""
 due: 2025-05-19
-completed: false
+completed: true
 ---
 # 🛠 Edición rápida
 
